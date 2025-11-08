@@ -4,12 +4,13 @@
 int ConvertToDec(int c){
     if ('0' <= c && c <= '9') return c - '0';
     if ('a' <= c && c <= 'f') return c - 'a' + 10;
-    return -1; // invalid
+    return -1; 
 }
 
 char ConvertToHex(int d) {
     if (d >= 0 && d <= 9)  return '0' + d;
     if (d >= 10 && d <= 15) return 'a' + (d - 10);
+    return -1;
 }
 
 void PrintRec(int value, int TargetBase){
@@ -20,16 +21,16 @@ void PrintRec(int value, int TargetBase){
 }
 
 
-void main(void)
+int main(void)
 {
-    int SourceBase,TargetBase,SourceNumber;
+    int SourceBase,TargetBase,c,value=0,curr;
 
     printf("enter the source base:\n");
     scanf("%d", &SourceBase);
     
     if(SourceBase < 2 || SourceBase > 16){
         printf("invalid source base! \n");
-        return;
+        return 0;
     }
 
     printf("enter the target base:\n");
@@ -37,20 +38,19 @@ void main(void)
 
     if(TargetBase < 2 || TargetBase > 16){
         printf("invalid target base! \n");
-        return;
+        return 0;
     }
 
     printf("enter a number in base %d:\n",SourceBase);
-    int c;
-    c = getchar(); //gets rid of /n left over from scanf
 
-    int value = 0;
-    int curr;
+    c = getchar(); 
+
+   
     while ((c = getchar()) != '\n' && c != EOF) {
         curr = ConvertToDec(c);
         if (curr < 0 || curr >= SourceBase) {
             printf("invalid input number!\n");
-            return;
+            return 0;
         }
         value = value * SourceBase + curr;
     }
@@ -63,6 +63,8 @@ void main(void)
     PrintRec(value,TargetBase);
     
     printf("\n");
+
+    return 0;
 
 }
 
