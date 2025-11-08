@@ -69,14 +69,4 @@ void main(void)
 
 
 
-int power(int counter){
-    int sum = 1;
-    for (int i = 1 ; i<=counter; i++){
-        sum *= 10;
-    }
-    return sum;
-}
-
-
-
 
