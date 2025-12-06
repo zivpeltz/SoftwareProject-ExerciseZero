@@ -29,7 +29,7 @@ int main(void)
     scanf("%d", &SourceBase);
     
     if(SourceBase < 2 || SourceBase > 16){
-        printf("invalid source base! \n");
+        printf("Invalid source base!\n");
         return 0;
     }
 
@@ -37,7 +37,7 @@ int main(void)
     scanf("%d", &TargetBase);
 
     if(TargetBase < 2 || TargetBase > 16){
-        printf("invalid target base! \n");
+        printf("Invalid target base!\n");
         return 0;
     }
 
@@ -49,7 +49,7 @@ int main(void)
     while ((c = getchar()) != '\n' && c != EOF) {
         curr = ConvertToDec(c);
         if (curr < 0 || curr >= SourceBase) {
-            printf("invalid input number!\n");
+            printf("Invalid input number!\n");
             return 0;
         }
         value = value * SourceBase + curr;
